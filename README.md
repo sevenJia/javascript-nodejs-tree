@@ -7,9 +7,15 @@ JavaScript 十行代码实现无限分类树
 > 为何此处仅将根节点加入了返回的结果集，console返回的结果集却已是tree树
 
 >>实际在对父节点添加子类parentNode.children.push操作时 根节点也已同步发生变化，这就是引用类型。或者说他们的值都指向同一个地点（有图的话可能比较好理解）。  
->>可以console map 、treeResult 、rows看看是否能印证上面说话
+>>可以函数return前console map 、treeResult 、rows看看是否能印证上面说话
 
 ```javascript
+	/*
+	 * 无限分类树实现
+	 * rows: [{id:*, text:*, upper_id:*}]
+	 * return: [{id:*, text:*, state:'close',
+	 *           children:[{id:*, text:*, state:'close', children:[...]}]}]
+	 */
 	function convertToTreeData(rows){ 
 	  // 将数据存储为以id为KEY的map对象 用于过滤出根节点
 	  var map = {};
