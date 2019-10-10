@@ -48,4 +48,3 @@ JavaScript 十行代码以内实现无限分类树
 	console.log(convertToTreeData(rows))
 ```
 
-本人js小白一个  如有说错  欢迎指正
