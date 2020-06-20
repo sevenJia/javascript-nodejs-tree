@@ -43,6 +43,6 @@ JavaScript 十行代码以内实现无限分类树
 	{ id: 8, name: "陆陆陆", pid: 6 },
 	];
 
-	console.log(convertToTreeData(rows))
+	console.log(convert2Tree(rows))
 ```
 
