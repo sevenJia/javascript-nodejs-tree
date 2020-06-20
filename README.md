@@ -16,17 +16,17 @@ JavaScript 十行代码以内实现无限分类树
 	 * return: [{id:*, text:*, state:'close',
 	 *           children:[{id:*, text:*, state:'close', children:[...]}]}]
 	 */
-	function convertToTreeData(rows){ 
+	function convert2Tree(rows, id='id', pid='pid'){ 
 	  // 将数据存储为以id为KEY的map对象 用于过滤出根节点
-	  const map = {}, treeResult = [];
-	  rows.forEach(item => (map[item.id] = item))
+	  const map = {}, r = [];
+	  rows.forEach(item => (map[item['id']] = item))
 	  // 使用rows的pid去map对象中找key 即id、有值，此项不在顶级当中,则把此项添加到对应的父级
 	  // 没有在map中找到对应的key，该item则作为顶级
 	  rows.forEach(item => {
-		  let parentNode = map[item.pid];
-		  parentNode != undefined ? (parentNode.children || ( parentNode.children = [] )).push(item) : treeResult.push(item);
+		  let parentNode = map[item['pid']];
+		  parentNode != undefined ? (parentNode.children || ( parentNode.children = [] )).push(item) : r.push(item);
 	  })
-	  return treeResult;
+	  return r;
 	}
 ```
 
